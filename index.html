@@ -1,1 +1,805 @@
-hai
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 3. SEO: 5 Kata Kunci Pendukung -->
+  <meta name="keywords" content="dessert premium, minuman ombeno, banana pudding, tiramisu cheese, green tea botol">
+  <title>Sweetbites Dessert & OMBENO Drinks</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+    rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="icon" href="images/logo-minimal.webp">
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #3951b3;
+      --primary-dark: #263780;
+      --soft-blue: #eef1ff;
+      --cream: #fff8ef;
+      --white: #ffffff;
+      --dark: #242633;
+      --muted: #707586;
+      --font: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-pad {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 48px;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      z-index: 1000;
+      height: 80px;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .nav-logo img {
+      height: 50px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Hero */
+    .hero {
+      background: var(--cream);
+      padding: 160px 0 80px 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .hero-img {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Grid Produk */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .card img {
+      height: 250px;
+      width: 100%;
+      object-fit: contain;
+      background: white;
+      padding: 10px;
+    }
+
+    .card-body {
+      padding: 24px;
+    }
+
+    .price {
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 1.25rem;
+      margin-top: 16px;
+      display: block;
+    }
+
+    /* Manfaat */
+    .manfaat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .manfaat-box {
+      background: var(--soft-blue);
+      padding: 32px;
+      border-radius: 16px;
+    }
+
+    /* Testimoni */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testi-card {
+      background: var(--cream);
+      padding: 24px;
+      border-radius: 16px;
+      border-left: 4px solid var(--primary);
+    }
+
+    /* Kontak Section */
+    .kontak-section {
+      background: white;
+      text-align: center;
+    }
+
+    .kontak-container {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .kontak-card {
+      background: var(--soft-blue);
+      padding: 32px 24px;
+      border-radius: 16px;
+      width: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: 0.3s;
+      border: 2px solid transparent;
+    }
+
+    .kontak-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+      box-shadow: 0 10px 20px rgba(57, 81, 179, 0.1);
+    }
+
+    .kontak-icon {
+      width: 60px;
+      height: 60px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 16px;
+      color: var(--primary);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .kontak-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      color: var(--dark);
+    }
+
+    .kontak-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .kontak-card .btn {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      width: 100%;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary-dark);
+      color: white;
+      padding: 60px 0 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-grid h4 {
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 8px;
+      color: #a0a8c8;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .backlink-section {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 16px;
+      border-radius: 8px;
+      margin-top: 24px;
+      font-size: 0.9rem;
+    }
+
+    .backlink-section a {
+      text-decoration: underline;
+      margin-right: 12px;
+      color: #a0a8c8;
+    }
+
+    .backlink-section a:hover {
+      color: white;
+    }
+
+    .copyright {
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
+      font-size: 0.9rem;
+      color: #a0a8c8;
+    }
+
+    @media (max-width: 768px) {
+
+      .hero-grid,
+      .product-grid,
+      .manfaat-grid,
+      .testi-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* Popup background */
+    .image-popup {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.85);
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    /* Gambar di dalam popup */
+    .popup-image {
+        max-width: 90%;
+        max-height: 80vh;
+        object-fit: contain;
+        border-radius: 10px;
+        animation: zoomIn 0.25s ease;
+    }
+
+    /* Caption gambar */
+    .popup-caption {
+        color: #fff;
+        font-size: 16px;
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    /* Tombol tutup */
+    .popup-close {
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        color: #fff;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+        line-height: 1;
+    }
+
+    /* Animasi */
+    @keyframes zoomIn {
+        from {
+            transform: scale(0.85);
+            opacity: 0;
+        }
+
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo-sweetbites.webp" alt="Logo"
+          onerror="this.outerHTML='<h2 style=color:#3951b3;font-weight:800;>Sweetbites.</h2>'">
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#produk">Katalog</a>
+        <a href="#manfaat">Manfaat</a>
+        <a href="#testimoni">Testimoni</a>
+        <!-- Tambahan Menu Kontak di Navbar -->
+        <a href="#kontak">Kontak</a>
+        <a href="https://wa.me/6289523495376?text=Halo%20Sweetbites" style="padding:3px 18px" target="_blank"
+          class="btn btn-primary">Pesan
+          Sekarang</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 1. Judul Landing Page Minimal 4 Kata -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>Sweetbites Dessert <br><span>di Temani Minum OMBENO</span></h1>
+        <p>Nikmati kelembutan dessert premium yang dipadukan dengan kesegaran teh botol dari OMBENO. Momen manis Anda
+          kini lebih sempurna dengan perpaduan rasa yang harmonis.</p>
+        <a href="#produk" class="btn btn-primary">Jelajahi Menu</a>
+      </div>
+      <div class="hero-img">
+        <img src="images/sweetbites.webp" alt="Sweetbites Dessert">
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad" id="produk">
+    <div class="container">
+      <h2 class="section-title">Katalog Unggulan Kami</h2>
+      <p class="section-sub">Pilih dessert favoritmu dan lengkapi dengan minuman OMBENO.</p>
+
+      <div class="product-grid">
+
+        <!-- Produk tiramisu -->
+        <div class="card">
+          <img src="images/tiramisu.webp" alt="Tiramisu Cheese" class="product-image" onclick="openImagePopup(this.src, this.alt)"
+            style="cursor: zoom-in;">
+          <div class="card-body">
+            <h3>Tiramisu Cheese</h3>
+            <p>Dessert lembut dengan lapisan biskuit dan cheese.</p>
+            <span class="price">Rp15.000</span>
+            <!-- 7. Tombol Pemesanan WA -->
+            <a href="https://wa.me/6289523495376?text=Halo%20Sweetbites,%20saya%20ingin%20memesan%20Tiramisu%20Cheese%20Rp15.000"
+              target="_blank" class="btn btn-primary" style="margin-top:16px; display:inline-block; font-size:15px">Pesan via WA</a>
+            <a href="https://tiktok.com/@sweet_bites.dmk"
+              target="_blank" class="btn btn-primary" style="margin-top:16px; display:inline-block; font-size:15px">Pesan via TikTok</a>
+            <!-- 8. Backlink Internal -->
+            <a href="tiramisu.html"
+              style="display:block; margin-top:12px; color:var(--primary); font-weight:600; text-decoration:underline;">Baca
+              Detail Produk &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Produk banana_pudding_classic -->
+        <div class="card">
+          <img src="images/banana_pudding_classic.webp" alt="Banana Pudding Classic" class="product-image" onclick="openImagePopup(this.src, this.alt)"
+            style="cursor: zoom-in;">
+          <div class="card-body">
+            <h3>Banana Pudding Classic</h3>
+            <p>Puding pisang lembut berlapis biskuit renyah dan krim vanilla yang manis.</p>
+            <span class="price">Rp15.000</span>
+            <!-- 7. Tombol Pemesanan WA -->
+            <a href="https://wa.me/6289523495376?text=Halo%20Sweetbites,%20saya%20ingin%20memesan%20Banana%20Pudding%20Classic%20Rp15.000"
+              target="_blank" class="btn btn-primary" style="margin-top:16px; display:inline-block; font-size:15px">Pesan via WA</a>
+            <a href="https://tiktok.com/@sweet_bites.dmk"
+              target="_blank" class="btn btn-primary" style="margin-top:16px; display:inline-block; font-size:15px">Pesan via TikTok</a>
+            <!-- 8. Backlink Internal -->
+            <a href="banana_pudding_classic.html"
+              style="display:block; margin-top:12px; color:var(--primary); font-weight:600; text-decoration:underline;">Baca
+              Detail Produk &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Produk banana_pudding_oreo -->
+        <div class="card">
+          <img src="images/banana_pudding_oreo.webp" alt="Banana Pudding Classic" class="product-image" onclick="openImagePopup(this.src, this.alt)"
+            style="cursor: zoom-in;">
+          <div class="card-body">
+            <h3>Banana Pudding Oreo</h3>
+            <p>Puding pisang lembut berlapis Oreo dan saus coklat yang manis.</p>
+            <span class="price">Rp15.000</span>
+            <!-- 7. Tombol Pemesanan WA -->
+            <a href="https://wa.me/6289523495376?text=Halo%20Sweetbites,%20saya%20ingin%20memesan%20Banana%20Pudding%20Oreo%20Rp15.000"
+              target="_blank" class="btn btn-primary" style="margin-top:16px; display:inline-block; font-size:15px">Pesan via WA</a>
+            <a href="https://tiktok.com/@sweet_bites.dmk"
+              target="_blank" class="btn btn-primary" style="margin-top:16px; display:inline-block; font-size:15px">Pesan via TikTok</a>
+            <!-- 8. Backlink Internal -->
+            <a href="banana_pudding_oreo.html"
+              style="display:block; margin-top:12px; color:var(--primary); font-weight:600; text-decoration:underline;">Baca
+              Detail Produk &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Produk cheesecake -->
+        <div class="card">
+          <img src="images/cheesecake.webp" alt="Banana Pudding Classic" class="product-image" onclick="openImagePopup(this.src, this.alt)"
+            style="cursor: zoom-in;">
+          <div class="card-body">
+            <h3>Cheesecake</h3>
+            <p>Cheesecake lembut dengan selai strawberry dan taburan biskuit renyah.</p>
+            <span class="price">Rp15.000</span>
+            <!-- 7. Tombol Pemesanan WA -->
+            <a href="https://wa.me/6289523495376?text=Halo%20Sweetbites,%20saya%20ingin%20memesan%20Banana%20Cheesecake%20Rp15.000"
+              target="_blank" class="btn btn-primary" style="margin-top:16px; display:inline-block; font-size:15px">Pesan via WA</a>
+            <a href="https://tiktok.com/@sweet_bites.dmk"
+              target="_blank" class="btn btn-primary" style="margin-top:16px; display:inline-block; font-size:15px">Pesan via TikTok</a>
+            <!-- 8. Backlink Internal -->
+            <a href="cheesecake.html"
+              style="display:block; margin-top:12px; color:var(--primary); font-weight:600; text-decoration:underline;">Baca
+              Detail Produk &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Produk cheesecuit -->
+        <div class="card">
+          <img src="images/cheesecuit.webp" alt="Banana Pudding Classic" class="product-image" onclick="openImagePopup(this.src, this.alt)"
+            style="cursor: zoom-in;">
+          <div class="card-body">
+            <h3>Cheesecuit</h3>
+            <p>Cheesecuit lembut dengan taburan keju melimpah.</p>
+            <span class="price">Rp15.000</span>
+            <!-- 7. Tombol Pemesanan WA -->
+            <a href="https://wa.me/6289523495376?text=Halo%20Sweetbites,%20saya%20ingin%20memesan%20Banana%20Cheesecuit%20Rp15.000"
+              target="_blank" class="btn btn-primary" style="margin-top:16px; display:inline-block; font-size:15px">Pesan via WA</a>
+            <a href="https://tiktok.com/@sweet_bites.dmk"
+              target="_blank" class="btn btn-primary" style="margin-top:16px; display:inline-block; font-size:15px">Pesan via TikTok</a>
+            <!-- 8. Backlink Internal -->
+            <a href="cheesecuit.html"
+              style="display:block; margin-top:12px; color:var(--primary); font-weight:600; text-decoration:underline;">Baca
+              Detail Produk &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Produk lotus_biscoff_cheese -->
+        <div class="card">
+          <img src="images/lotus_biscoff_cheese.webp" alt="Banana Pudding Classic" class="product-image" onclick="openImagePopup(this.src, this.alt)"
+            style="cursor: zoom-in;">
+          <div class="card-body">
+            <h3>Lotus Biscoff Cheese</h3>
+            <p>Lotus Biscoff Cheese lembut dengan biskuit biscoff.</p>
+            <span class="price">Rp20.000</span>
+            <!-- 7. Tombol Pemesanan WA -->
+            <a href="https://wa.me/6289523495376?text=Halo%20Sweetbites,%20saya%20ingin%20memesan%20Banana%20Lotus%20Biscoff%20Cheese%20Rp20.000"
+              target="_blank" class="btn btn-primary" style="margin-top:16px; display:inline-block; font-size:15px">Pesan via WA</a>
+            <a href="https://tiktok.com/@sweet_bites.dmk"
+              target="_blank" class="btn btn-primary" style="margin-top:16px; display:inline-block; font-size:15px">Pesan via TikTok</a>
+            <!-- 8. Backlink Internal -->
+            <a href="lotus_biscoff_cheese.html"
+              style="display:block; margin-top:12px; color:var(--primary); font-weight:600; text-decoration:underline;">Baca
+              Detail Produk &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Produk thaitea -->
+        <div class="card">
+          <img src="images/thaitea.webp" alt="Thai Tea" class="product-image" onclick="openImagePopup(this.src, this.alt)"
+            style="cursor: zoom-in;">
+          <div class="card-body">
+            <h3>OMBENO Thai Tea</h3>
+            <p>Minuman teh Thailand yang creamy dan manis.</p>
+            <span class="price">Rp10.000</span>
+            <a href="https://wa.me/6289523495376?text=Halo%20OMBENO,%20saya%20ingin%20memesan%20Thai%20Tea"
+              target="_blank" class="btn btn-primary" style="margin-top:16px; display:inline-block;">Pesan via WA</a>
+              <a href="https://tiktok.com/@ombeno.sweetbites" target="_blank" class="btn btn-primary"
+                style="margin-top:16px; display:inline-block; font-size:15px">Pesan via TikTok</a>
+            <!-- 8. Backlink Internal -->
+            <a href="thaitea.html"
+              style="display:block; margin-top:12px; color:var(--primary); font-weight:600; text-decoration:underline;">Baca
+              Detail Produk &rarr;</a>
+          </div>
+        </div>
+        
+        <!-- Produk 3 greentea -->
+        <div class="card">
+          <img src="images/greentea.webp" alt="Green Tea" class="product-image" onclick="openImagePopup(this.src, this.alt)"
+            style="cursor: zoom-in;">
+          <div class="card-body">
+            <h3>OMBENO Green Tea</h3>
+            <p>Minuman green tea Thailand yang creamy dan manis.</p>
+            <span class="price">Rp10.000</span>
+            <a href="https://wa.me/6289523495376?text=Halo%20OMBENO,%20saya%20ingin%20memesan%20Green%20Tea"
+              target="_blank" class="btn btn-primary" style="margin-top:16px; display:inline-block;">Pesan via WA</a>
+              <a href="https://tiktok.com/@ombeno.sweetbites" target="_blank" class="btn btn-primary"
+                style="margin-top:16px; display:inline-block; font-size:15px">Pesan via TikTok</a>
+            <!-- 8. Backlink Internal -->
+            <a href="greentea.html"
+              style="display:block; margin-top:12px; color:var(--primary); font-weight:600; text-decoration:underline;">Baca
+              Detail Produk &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Manfaat Dessert dan Minumannya -->
+  <section class="section-pad" id="manfaat" style="background: var(--soft-blue);">
+    <div class="container">
+      <h2 class="section-title">Manfaat & Pengalaman</h2>
+      <div class="manfaat-grid">
+        <div class="manfaat-box">
+          <h3 style="color: var(--primary); margin-bottom: 12px;">Manfaat Dessert Sweetbites</h3>
+          <ul style="padding-left: 20px; color: var(--muted);">
+            <li>Memberikan energi instan dari kandungan gula dan karbohidrat.</li>
+            <li>Meningkatkan mood dan kebahagiaan (comfort food) saat santai.</li>
+            <li>Tekstur lembut yang mudah dicerna dan cocok untuk pencuci mulut.</li>
+          </ul>
+        </div>
+        <div class="manfaat-box" style="background: white;">
+          <h3 style="color: var(--primary); margin-bottom: 12px;">Manfaat Minuman OMBENO</h3>
+          <ul style="padding-left: 20px; color: var(--muted);">
+            <li>Green Tea kaya akan antioksidan yang baik untuk tubuh.</li>
+            <li>Menyegarkan tenggorokan dan melancarkan pencernaan.</li>
+            <li>Kemasan botol praktis, mudah dibawa ke mana saja.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Testimoni Pelanggan -->
+  <section class="section-pad" id="testimoni">
+    <div class="container">
+      <h2 class="section-title">Apa Kata Mereka?</h2>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <p>"Tiramisu Cheese-nya juara! Dipadukan dengan OMBENO Thai Tea bikin sore hari jadi sempurna. Pengiriman juga
+            cepat."</p>
+          <h4 style="margin-top: 16px; color: var(--primary);">- Sarah, Jakarta</h4>
+        </div>
+        <div class="testi-card">
+          <p>"Anak-anak suka banget Banana Pudding Stroberi. Saya sendiri lebih suka Green Tea OMBENO karena segar dan
+            nggak bikin enek."</p>
+          <h4 style="margin-top: 16px; color: var(--primary);">- Budi, Bandung</h4>
+        </div>
+        <div class="testi-card">
+          <p>"Pesan untuk acara kantor, semua pada nanya beli di mana. Dessertnya estetik dan rasanya premium banget!"
+          </p>
+          <h4 style="margin-top: 16px; color: var(--primary);">- Rina, Surabaya</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION KONTAK BARU -->
+  <section class="section-pad kontak-section" id="kontak">
+    <div class="container">
+      <h2 class="section-title">Hubungi Kami</h2>
+      <p class="section-sub">Punya pertanyaan atau ingin memesan? Hubungi kami melalui kanal di bawah ini.</p>
+
+      <div class="kontak-container">
+        <!-- Kontak WhatsApp -->
+        <div class="kontak-card">
+          <div class="kontak-icon">            
+            <i class="fa-brands fa-whatsapp fa-2x"></i>
+          </div>
+          <h4>WhatsApp Bisnis</h4>
+          <p>+62 895-2349-5376</p>
+          <a href="https://wa.me/6289523495376?text=Halo%20Sweetbites,%20saya%20ingin%20bertanya." target="_blank"
+            class="btn btn-primary">Chat WhatsApp</a>
+        </div>
+
+        <!-- Kontak TikTok Sweetbites -->
+        <div class="kontak-card">
+          <div class="kontak-icon">
+            <i class="fa-brands fa-tiktok fa-2x"></i>
+          </div>
+          <h4>TikTok Sweetbites</h4>
+          <p>@sweet_bites.dmk</p>
+          <a href="https://tiktok.com/@sweet_bites.dmk" target="_blank" class="btn btn-primary">Kunjungi TikTok</a>
+        </div>
+
+        <!-- Kontak TikTok OMBENO -->
+        <div class="kontak-card">
+          <div class="kontak-icon">
+            <i class="fa-brands fa-tiktok fa-2x"></i>
+          </div>
+          <h4>TikTok OMBENO</h4>
+          <p>@ombeno.sweetbites</p>
+          <a href="https://tiktok.com/@ombeno.sweetbites" target="_blank" class="btn btn-primary">Kunjungi TikTok</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="images/logo-sweetbites.webp" alt="Logo" style="height: 50px; margin-bottom: 16px;"
+            onerror="this.outerHTML='<h2 style=color:white;>Sweetbites.</h2>'">
+          <p style="color: #a0a8c8;">Sweetbites menghadirkan pilihan dessert untuk momen manis, dilengkapi OMBENO
+            sebagai pilihan minuman untuk menemani setiap aktivitas.</p>
+        </div>
+        <div>
+          <h4>Navigasi</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tiramisu.html">Detail Tiramisu</a></li>
+            <li><a href="thaitea.html">Detail Thai Tea</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontak Sosial</h4>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/6289523495376" target="_blank">WhatsApp</a></li>
+            <li><a href="https://tiktok.com/@sweet_bites.dmk" target="_blank">TikTok Sweetbites</a></li>
+            <li><a href="https://tiktok.com/@ombeno.sweetbites" target="_blank">TikTok OMBENO</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 3. Hashtag dan Tag (Ditempatkan di Footer) -->
+      <div class="backlink-section">
+        <p style="margin-bottom: 8px;"><strong>Tags & Keywords:</strong> #Sweetbites #OMBENO #DessertKekinian #ThaiTea
+          #GreenTea #KulinerJakarta #CamilanManis #JajananViral #MinumanBotol #DessertPremium</p>
+        <p><strong>Tags:</strong> <em>Dessert, Ombmeno, Banana Pudding, Tiramisu, Cheesecake, Green Tea, Thai Tea,
+            Minuman Segar, Camilan, Food Photography</em></p>
+      </div>
+
+      <!-- 8. Backlink Eksternal (Minimal 2) -->
+      <div class="backlink-section">
+        <p><strong>Partner & Referensi:</strong></p>
+        <a href="https://www.healthline.com/nutrition/desserts" target="_blank" rel="noopener">Healthline - Dessert
+          Guide</a>
+        <a href="https://en.wikipedia.org/wiki/Thai_tea" target="_blank" rel="noopener">Wikipedia - Thai Tea</a>
+      </div>
+
+      <div class="copyright">
+        &copy; 2024 Sweetbites & OMBENO. All rights reserved.
+      </div>
+    </div>
+  </footer>
+  <script>lucide.createIcons();</script>
+  <!-- Popup Gambar Produk -->
+  <div id="imagePopup" class="image-popup" onclick="closeImagePopup()">
+    <span class="popup-close">&times;</span>
+  
+    <img id="popupImage" class="popup-image" src="" alt="">
+  
+    <p id="popupCaption" class="popup-caption"></p>
+  </div>
+
+  <script>
+    function openImagePopup(src, alt) {
+      const popup = document.getElementById('imagePopup');
+      const popupImage = document.getElementById('popupImage');
+      const popupCaption = document.getElementById('popupCaption');
+
+      popupImage.src = src;
+      popupImage.alt = alt;
+      popupCaption.textContent = alt;
+
+      popup.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImagePopup() {
+      document.getElementById('imagePopup').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    // Tutup popup menggunakan tombol Escape
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        closeImagePopup();
+      }
+    });
+  </script>
+</body>
+
+</html>
